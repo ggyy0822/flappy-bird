@@ -2,7 +2,7 @@
 
 #include "Core/Context.hpp"
 
-int main(int, char**) {
+int main(int, char **) {
     auto context = Core::Context::GetInstance();
     App app;
 
@@ -14,6 +14,26 @@ int main(int, char**) {
 
             case App::State::UPDATE:
                 app.Update();
+                break;
+
+            case App::State::LEVEL_1:
+                app.Level_1();
+                break;
+
+            case App::State::LEVEL_2:
+                app.Level_2();
+                break;
+
+            case App::State::LEVEL_3:
+                app.Level_3();
+                break;
+
+            case App::State::LEVEL_4:
+                app.Level_4();
+                break;
+
+            case App::State::LOSE:
+                app.Lose();
                 break;
 
             case App::State::END:

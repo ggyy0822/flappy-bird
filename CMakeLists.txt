@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(REPLACE_WITH_YOUR_PROJECT_NAME)
+project(flappy-bird)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -19,6 +19,24 @@ add_executable(${PROJECT_NAME}
     ${SRC_DIR}/main.cpp
     ${SRC_FILES}
     ${HEADER_FILES}
+        include/Tube.hpp
+        include/BackgroundImage.hpp
+        src/BackgroundImage.cpp
+        include/Message.hpp
+        src/Message.cpp
+        include/Base.hpp
+        src/Base.cpp
+        src/Tube.cpp
+    include/Bird.hpp
+        src/Bird.cpp
+    include/Text.hpp
+    include/Text.hpp
+    src/Text.cpp
+    src/Text.cpp
+        include/ON.hpp
+        src/ON.cpp
+        include/OFF.hpp
+        src/OFF.cpp
 )
 
 if(MSVC)

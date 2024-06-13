@@ -62,10 +62,15 @@ void App::Start() {
 void App::UpdateGame(int gameSpeed, int scoreThreshold, int X1, int Y1, int Y2, float tubeupMove, float tubedownMove) {
 
 
-    if (Util::Input::IsKeyUp(Util::Keycode::X) || Util::Input::IfExit()) {
+    if (Util::Input::IsKeyUp(Util::Keycode::T) || Util::Input::IfExit()) {
         collisionDetectionEnabled = false; // 當按下‘X’鍵時禁用碰撞檢測
         m_ON->SetVisible(true);
         m_OFF->SetVisible(false);
+    }
+    if (Util::Input::IsKeyUp(Util::Keycode::F) || Util::Input::IfExit()) {
+        collisionDetectionEnabled = true; // 當按下‘X’鍵時禁用碰撞檢測
+        m_ON->SetVisible(false);
+        m_OFF->SetVisible(true);
     }
     if (Util::Input::IsKeyUp(Util::Keycode::ESCAPE) || Util::Input::IfExit()) {
         m_CurrentState = State::END;
@@ -169,8 +174,15 @@ void App::Level_4() {
     m_GameSpeed=3;
 
 
-    if (Util::Input::IsKeyUp(Util::Keycode::X) || Util::Input::IfExit()) {
+    if (Util::Input::IsKeyUp(Util::Keycode::T) || Util::Input::IfExit()) {
         collisionDetectionEnabled = false; // 當按下‘X’鍵時禁用碰撞檢測
+        m_ON->SetVisible(true);
+        m_OFF->SetVisible(false);
+    }
+    if (Util::Input::IsKeyUp(Util::Keycode::F) || Util::Input::IfExit()) {
+        collisionDetectionEnabled = true; // 當按下‘X’鍵時禁用碰撞檢測
+        m_ON->SetVisible(false);
+        m_OFF->SetVisible(true);
     }
     m_Background->SetDrawable(std::make_unique<Util::Image>(RESOURCE_DIR"/Image/Background/background-day.png"));
     if (Util::Input::IsKeyUp(Util::Keycode::ESCAPE) ||
@@ -256,6 +268,7 @@ void App::Reset() {
     m_Bird->SetPosition({-90, 20});
     m_ScoreText->SetText("0");
     m_ScoreText->SetPosition({0, 200});
+    m_Score=0;
     m_ScoreText->SetZIndex(99);
     m_GameOver->SetZIndex(98);
     m_GameOver->SetVisible(false);
